@@ -302,7 +302,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 660153760}
-  - component: {fileID: 660153762}
   - component: {fileID: 660153759}
   - component: {fileID: 660153761}
   m_Layer: 0
@@ -388,20 +387,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &660153762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 660153758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcfce2e523de20e4aac7bfff77d1f577, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvasTransform: {fileID: 0}
-  enemyPrefab: {fileID: 0}
 --- !u!1 &871346855
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,6 +434,7 @@ MonoBehaviour:
   canvasTransform: {fileID: 615186981}
   enemyPrefab: {fileID: 348090736139071951, guid: 274d79c007500414899fd8d98aa85f7e,
     type: 3}
+  inputField: {fileID: 1972213524}
 --- !u!1 &1595096861
 GameObject:
   m_ObjectHideFlags: 0

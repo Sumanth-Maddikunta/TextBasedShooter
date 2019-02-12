@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour
 
     public Transform canvasTransform;
     public GameObject enemyPrefab;
+    public InputField inputField;
 
+    private List<Enemy> enemyList;
     private Player player;
     private Enemy selectedEnemy;
     //private TouchScreenKeyboard playerKeyboard;
@@ -33,16 +35,35 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        
+
         /*if(player.textInput==selectedEnemy.str)
         {
             Debug.Log("HIT");
             selectedEnemy.speed = 0f;
         }*/
-
-        
-
-
+        SelectEnemy();
+        // Debug.Log(selectedEnemy.transform.position);
+        if (selectedEnemy != null)
+        {
+            if (string.Compare(player.textInput, selectedEnemy.str) == 1)
+            {
+                Debug.Log("TextMatch");
+                Destroy(selectedEnemy.gameObject);
+            }
+        }
+        else
+        {
+            Debug.Log("Enemy is null");
+        }
+        foreach(Enemy enemy in enemyList)
+        {
+            Debug.Log("Enemy Count" + enemyList.Count);
+            if(enemy.transform.position.y<inputField.transform.position.y)
+            {
+                enemyList.Remove(enemy);
+                Destroy(enemy.gameObject);
+            }
+        }
     }
     private void EnemySpawner()
     {
@@ -54,5 +75,19 @@ public class GameManager : MonoBehaviour
         string hey = "HEY";
         enemyInstance.GetComponent<Enemy>().setValues(hey);//display
        // yield return new WaitForSeconds(3f);
+    }
+
+    void SelectEnemy()
+    {
+        foreach(Enemy enemy in canvasTransform.GetComponentsInChildren<Enemy>())
+        {
+            enemyList.Add(enemy);
+            if(selectedEnemy==null)
+            {
+                Debug.Log("Enemy was Empty");
+                selectedEnemy = enemy;
+            }
+            
+        }
     }
 }
